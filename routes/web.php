@@ -23,7 +23,7 @@ Route::get('/elements', 'Pagecontroller@elements');
 
 Route::get('/blog', 'Pagecontroller@blog');
 
-Route::get('/contact', 'Pagecontroller@contact');
+Route::get('/contact', 'Pagecontroller@contact')->middleware('age');
 
 Route::get('/admin', 'Pagecontroller@admin');
 
@@ -36,3 +36,7 @@ Route::post('/admin/delete/post', 'PostController@delete')->name('admin.post.del
 Route::get('/edit/{id}', 'PostController@edit');
 
 Route::post('/update/{id}', 'PostController@update')->name('admin.post.update');
+
+Auth::routes();
+
+Route::get('/home', 'Pagecontroller@index')->name('home');
